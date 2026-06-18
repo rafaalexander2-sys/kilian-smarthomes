@@ -655,6 +655,14 @@ img { max-width: 100%; display: block; }
   margin: 0 auto;
 }
 .footer-bottom p { color: var(--grey2); font-size: 13px; }
+.casa-creative-link { display: flex; align-items: center; }
+.casa-creative-logo {
+  height: 22px;
+  width: auto;
+  opacity: 0.55;
+  transition: opacity var(--trans);
+}
+.casa-creative-logo:hover { opacity: 1; }
 .footer-social a {
   color: var(--grey2);
   font-size: 16px;
