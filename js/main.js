@@ -68,41 +68,84 @@ async function loadInstagram() {
 }
 loadInstagram();
 
-/* ── GOOGLE REVIEWS ───────────────────────────────────── */
-async function loadReviews() {
-  const grid  = document.getElementById('reviews-grid');
-  const count = document.getElementById('review-count');
-  try {
-    const res  = await fetch('/api/reviews');
-    if (!res.ok) throw new Error('not configured');
-    const data = await res.json();
+/* ── GOOGLE REVIEWS CAROUSEL (auto-play, no API) ──────── */
+(function initReviewsCarousel() {
+  const track = document.getElementById('rc-track');
+  const prev  = document.getElementById('rc-prev');
+  const next  = document.getElementById('rc-next');
+  const dotsC = document.getElementById('rc-dots');
+  if (!track) return;
 
-    if (data.user_ratings_total) count.textContent = data.user_ratings_total;
-    if (!data.reviews || !data.reviews.length) throw new Error('no reviews');
+  const cards = Array.from(track.children);
+  const total = cards.length;
+  let index = 0;        // index of the first visible card
+  let perView = 3;
+  let timer = null;
+  const DELAY = 4000;
 
-    grid.innerHTML = '';
-    data.reviews.slice(0, 6).forEach(r => {
-      const stars = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
-      const initials = r.author_name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
-      const card = document.createElement('div');
-      card.className = 'review-card';
-      card.innerHTML = `
-        <div class="review-top">
-          <div class="reviewer-avatar">${initials}</div>
-          <div>
-            <p class="reviewer-name">${r.author_name}</p>
-            <div class="review-stars">${stars}</div>
-          </div>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/120px-Google_%22G%22_logo.svg.png" alt="Google" class="review-g-icon">
-        </div>
-        <p class="review-text">"${r.text}"</p>`;
-      grid.appendChild(card);
-    });
-  } catch {
-    /* keep static fallback reviews */
+  function calcPerView() {
+    const w = window.innerWidth;
+    if (w <= 720) return 1;
+    if (w <= 960) return 2;
+    return 3;
   }
-}
-loadReviews();
+
+  function maxIndex() { return Math.max(0, total - perView); }
+
+  function step() {
+    // distance = card width + gap
+    const gap = parseFloat(getComputedStyle(track).gap) || 20;
+    return cards[0].getBoundingClientRect().width + gap;
+  }
+
+  function go(i) {
+    index = i < 0 ? maxIndex() : (i > maxIndex() ? 0 : i);
+    track.style.transform = `translateX(-${index * step()}px)`;
+    updateDots();
+  }
+
+  function buildDots() {
+    dotsC.innerHTML = '';
+    const pages = maxIndex() + 1;
+    for (let p = 0; p < pages; p++) {
+      const b = document.createElement('button');
+      b.className = 'rc-dot' + (p === index ? ' active' : '');
+      b.setAttribute('aria-label', `Go to review ${p + 1}`);
+      b.addEventListener('click', () => { go(p); restart(); });
+      dotsC.appendChild(b);
+    }
+  }
+
+  function updateDots() {
+    Array.from(dotsC.children).forEach((d, i) =>
+      d.classList.toggle('active', i === index));
+  }
+
+  function autoplay() { go(index + 1); }
+  function start()   { timer = setInterval(autoplay, DELAY); }
+  function stop()    { clearInterval(timer); }
+  function restart() { stop(); start(); }
+
+  function rebuild() {
+    perView = calcPerView();
+    if (index > maxIndex()) index = maxIndex();
+    buildDots();
+    go(index);
+  }
+
+  next.addEventListener('click', () => { go(index + 1); restart(); });
+  prev.addEventListener('click', () => { go(index - 1); restart(); });
+
+  const carousel = document.getElementById('reviews-carousel');
+  carousel.addEventListener('mouseenter', stop);
+  carousel.addEventListener('mouseleave', start);
+
+  let rt;
+  window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(rebuild, 150); });
+
+  rebuild();
+  start();
+})();
 
 /* ── CONTACT FORM ─────────────────────────────────────── */
 const form   = document.getElementById('contact-form');

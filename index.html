@@ -209,7 +209,7 @@
           <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
           <i class="fas fa-star"></i><i class="fas fa-star"></i>
         </div>
-        <p class="based-on">Based on <strong id="review-count">60</strong> reviews</p>
+        <p class="based-on">Based on <strong id="review-count">62</strong> reviews</p>
         <div class="google-logo-wrap">
           <svg viewBox="0 0 272 92" xmlns="http://www.w3.org/2000/svg" width="80">
             <path d="M115.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18C71.25 34.32 81.24 25 93.5 25s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44S80.99 39.2 80.99 47.18c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z" fill="#EA4335"/>
@@ -222,43 +222,84 @@
         </div>
       </div>
 
-      <div class="reviews-grid" id="reviews-grid">
-        <!-- Populated by main.js via /api/reviews -->
-        <!-- Static fallback cards -->
-        <div class="review-card">
-          <div class="review-top">
-            <div class="reviewer-avatar">H</div>
-            <div>
-              <p class="reviewer-name">Helena C.</p>
-              <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      <div class="reviews-carousel" id="reviews-carousel">
+        <button class="rc-arrow rc-prev" id="rc-prev" aria-label="Previous reviews"><i class="fas fa-chevron-left"></i></button>
+
+        <div class="rc-viewport">
+          <div class="rc-track" id="rc-track">
+
+            <div class="review-card">
+              <div class="review-top">
+                <div class="reviewer-avatar" style="background:#2aa9a0">H</div>
+                <div class="reviewer-meta">
+                  <p class="reviewer-name">Helena Cohen</p>
+                  <p class="review-date">2024-08-16</p>
+                </div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/120px-Google_%22G%22_logo.svg.png" alt="Google" class="review-g-icon">
+              </div>
+              <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <i class="fas fa-check-circle verified"></i></div>
+              <p class="review-text">Was a pleasure to work with the team at Kilian Smart Homes. Rick and the team were so accommodating. Rick was ready to remedy any issues that we had. Excellent customer service.</p>
             </div>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/120px-Google_%22G%22_logo.svg.png" alt="Google" class="review-g-icon">
-          </div>
-          <p class="review-text">"Was a pleasure to work with the team at Kilian Smart Homes. They went above and beyond all accommodations. Rick was ready to remedy any issues that we had. Excellent customer service."</p>
-        </div>
-        <div class="review-card">
-          <div class="review-top">
-            <div class="reviewer-avatar">M</div>
-            <div>
-              <p class="reviewer-name">Maite Pia Burla</p>
-              <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+
+            <div class="review-card">
+              <div class="review-top">
+                <div class="reviewer-avatar" style="background:#b5651d">M</div>
+                <div class="reviewer-meta">
+                  <p class="reviewer-name">Maria Pia Buchi</p>
+                  <p class="review-date">2024-08-13</p>
+                </div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/120px-Google_%22G%22_logo.svg.png" alt="Google" class="review-g-icon">
+              </div>
+              <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <i class="fas fa-check-circle verified"></i></div>
+              <p class="review-text">Exceptional service provided by a highly qualified and professional team. Their recommendations were perfectly tailored to my needs, and the delivery was impeccable. I highly recommend them.</p>
             </div>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/120px-Google_%22G%22_logo.svg.png" alt="Google" class="review-g-icon">
-          </div>
-          <p class="review-text">"Exceptional service provided by a highly qualified and professional team. Their recommendations were perfectly tailored to my needs, and the delivery was impeccable. I high..."</p>
-        </div>
-        <div class="review-card">
-          <div class="review-top">
-            <div class="reviewer-avatar">N</div>
-            <div>
-              <p class="reviewer-name">Naris Lima</p>
-              <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+
+            <div class="review-card">
+              <div class="review-top">
+                <div class="reviewer-avatar" style="background:#c0392b">F</div>
+                <div class="reviewer-meta">
+                  <p class="reviewer-name">Flavio Lima</p>
+                  <p class="review-date">2024-08-13</p>
+                </div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/120px-Google_%22G%22_logo.svg.png" alt="Google" class="review-g-icon">
+              </div>
+              <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <i class="fas fa-check-circle verified"></i></div>
+              <p class="review-text">Amazing professionals</p>
             </div>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/120px-Google_%22G%22_logo.svg.png" alt="Google" class="review-g-icon">
+
+            <div class="review-card">
+              <div class="review-top">
+                <div class="reviewer-avatar" style="background:#555">R</div>
+                <div class="reviewer-meta">
+                  <p class="reviewer-name">Rosito Residence</p>
+                  <p class="review-date">2024-08-13</p>
+                </div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/120px-Google_%22G%22_logo.svg.png" alt="Google" class="review-g-icon">
+              </div>
+              <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <i class="fas fa-check-circle verified"></i></div>
+              <p class="review-text">Grate Service, Really Professional!</p>
+            </div>
+
+            <div class="review-card">
+              <div class="review-top">
+                <div class="reviewer-avatar" style="background:#8e44ad">G</div>
+                <div class="reviewer-meta">
+                  <p class="reviewer-name">Gustavo Martins</p>
+                  <p class="review-date">2024-05-04</p>
+                </div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/120px-Google_%22G%22_logo.svg.png" alt="Google" class="review-g-icon">
+              </div>
+              <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <i class="fas fa-check-circle verified"></i></div>
+              <p class="review-text">Recomendo para todos na região de Miami, serviços de confiança e qualidade, obrigado Felippe, Kilian Smart Homes</p>
+            </div>
+
           </div>
-          <p class="review-text">"Amazing professionals"</p>
         </div>
+
+        <button class="rc-arrow rc-next" id="rc-next" aria-label="Next reviews"><i class="fas fa-chevron-right"></i></button>
       </div>
+
+      <div class="rc-dots" id="rc-dots"></div>
 
     </div>
   </section>
