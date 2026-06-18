@@ -185,7 +185,6 @@ img { max-width: 100%; display: block; }
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1600&q=80');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
