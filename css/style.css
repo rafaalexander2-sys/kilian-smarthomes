@@ -187,33 +187,32 @@ img { max-width: 100%; display: block; }
   inset: 0;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
-}
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, rgba(10,10,10,0.85) 45%, rgba(10,10,10,0.2));
 }
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 560px;
-  padding: 60px 0;
+  width: 100%;
 }
-.hero-content h1 {
+.hero-box {
+  max-width: 480px;
+  background: rgba(38, 38, 38, 0.92);
+  padding: 36px 38px 30px;
+  border-bottom: 3px solid var(--red);
+}
+.hero-box h1 {
   font-family: var(--font);
-  font-size: clamp(28px, 4vw, 52px);
+  font-size: clamp(24px, 2.6vw, 34px);
   font-weight: 800;
-  line-height: 1.15;
-  margin-bottom: 18px;
+  line-height: 1.2;
+  margin-bottom: 14px;
   color: var(--white);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
-.hero-content p {
+.hero-box p {
   color: var(--grey);
-  font-size: 16px;
-  margin-bottom: 32px;
+  font-size: 14.5px;
+  margin-bottom: 26px;
   line-height: 1.6;
 }
 .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
