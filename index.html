@@ -4,7 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Kilian Smart Homes – Give your home a mind of its own. Audio/Video company in Miami offering home automation, security, home theater, lighting and more.">
+  <meta name="theme-color" content="#1a1a1a">
   <title>Kilian Smart Homes – Give your home a mind of its own</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/279244245_4868198803307946_2423199774269008946_n.jpg">
+  <link rel="apple-touch-icon" href="images/279244245_4868198803307946_2423199774269008946_n.jpg">
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kilian Smart Homes – Give your home a mind of its own">
+  <meta property="og:description" content="Audio/Video company in Miami. Home automation, security, home theater, lighting and more.">
+  <meta property="og:image" content="https://kilian-smarthomes.vercel.app/images/hero.webp">
+  <meta property="og:url" content="https://kilian-smarthomes.vercel.app/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Performance: preconnect + preload hero -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preload" as="image" href="images/hero.webp">
+
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -60,7 +80,7 @@
 
   <!-- ── ABOUT ─────────────────────────────────────────────── -->
   <section class="about" id="about">
-    <div class="container about-grid">
+    <div class="container about-grid reveal">
       <div class="about-img-wrap">
         <img
           src="images/99cade0c-ec42-421f-9135-14ed51c6a2a1.webp"
@@ -82,7 +102,7 @@
     <div class="container">
       <span class="label-tag">Featured Services</span>
       <h2 class="section-title">Services Provided</h2>
-      <div class="services-grid">
+      <div class="services-grid reveal">
 
         <a href="#contact" class="service-card" style="--bg:url('images/97142975-9dab-492c-82ce-d00df7e14e46.png')">
           <span class="badge badge-home">HOME</span>
@@ -137,7 +157,7 @@
   <section class="dealers">
     <div class="container">
       <h2 class="dealers-title">Authorized <span class="text-red">Dealers</span> Of</h2>
-      <div class="dealers-grid">
+      <div class="dealers-grid reveal">
         <div class="dealer-item">
           <img src="images/cotrol4.png" alt="Control4" loading="lazy">
         </div>
@@ -205,7 +225,7 @@
   <!-- ── GOOGLE REVIEWS ─────────────────────────────────────── -->
   <section class="reviews-section" id="reviews">
     <div class="container">
-      <div class="reviews-header">
+      <div class="reviews-header reveal">
         <p class="excellent-label">EXCELLENT</p>
         <div class="stars-row">
           <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
@@ -326,6 +346,13 @@
 
       <div class="footer-col footer-form-col">
         <form id="contact-form" class="contact-form" novalidate>
+          <!-- Web3Forms: cole sua access key abaixo (veja instruções no chat) -->
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+          <input type="hidden" name="subject" value="New contact from Kilian Smart Homes website">
+          <input type="hidden" name="from_name" value="Kilian Smart Homes">
+          <!-- honeypot anti-spam (invisível) -->
+          <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off">
+
           <input type="text"  name="name"    placeholder="Name"    required autocomplete="name">
           <input type="email" name="email"   placeholder="Email"   required autocomplete="email">
           <input type="tel"   name="phone"   placeholder="Phone"              autocomplete="tel">

@@ -147,7 +147,7 @@ loadInstagram();
   start();
 })();
 
-/* ── CONTACT FORM ─────────────────────────────────────── */
+/* ── CONTACT FORM (Web3Forms) ─────────────────────────── */
 const form   = document.getElementById('contact-form');
 const status = document.getElementById('form-status');
 form.addEventListener('submit', async e => {
@@ -155,24 +155,30 @@ form.addEventListener('submit', async e => {
   status.className = 'form-status';
   status.textContent = 'Sending…';
 
-  const payload = {
-    name:    form.name.value.trim(),
-    email:   form.email.value.trim(),
-    phone:   form.phone.value.trim(),
-    message: form.message.value.trim(),
-  };
-
   try {
-    const res = await fetch('/api/contact', {
+    const res = await fetch('https://api.web3forms.com/submit', {
       method:  'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify(payload),
+      headers: { 'Accept': 'application/json' },
+      body:    new FormData(form),
     });
-    if (!res.ok) throw new Error('Server error');
+    const data = await res.json();
+    if (!data.success) throw new Error(data.message || 'Server error');
     status.textContent = 'Message sent! We will contact you soon.';
     form.reset();
-  } catch {
+  } catch (err) {
     status.className   = 'form-status error';
     status.textContent = 'Failed to send. Please try calling us directly.';
   }
 });
+
+/* ── SCROLL REVEAL (subtle fade-up) ───────────────────── */
+(function scrollReveal() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(el => io.observe(el));
+})();
