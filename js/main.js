@@ -46,6 +46,7 @@ document.querySelectorAll('.service-card[style]').forEach(card => {
 /* ── INSTAGRAM FEED ───────────────────────────────────── */
 async function loadInstagram() {
   const grid = document.getElementById('ig-grid');
+  if (!grid) return;
   try {
     const res  = await fetch('/api/instagram');
     if (!res.ok) throw new Error('not configured');
@@ -150,7 +151,7 @@ loadInstagram();
 /* ── CONTACT FORM (Web3Forms) ─────────────────────────── */
 const form   = document.getElementById('contact-form');
 const status = document.getElementById('form-status');
-form.addEventListener('submit', async e => {
+if (form) form.addEventListener('submit', async e => {
   e.preventDefault();
   status.className = 'form-status';
   status.textContent = 'Sending…';

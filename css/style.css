@@ -786,3 +786,180 @@ textarea:focus-visible {
   * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ── INNER PAGE BANNER ────────────────────────────────── */
+.page-banner {
+  position: relative;
+  padding: 90px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+}
+.page-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.7);
+}
+.page-banner-inner { position: relative; z-index: 1; }
+.page-banner h1 {
+  font-family: var(--font);
+  font-size: clamp(28px, 4vw, 46px);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--white);
+}
+.page-banner p {
+  color: var(--grey);
+  margin-top: 10px;
+  font-size: 16px;
+}
+.breadcrumb {
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--grey2);
+  font-family: var(--font);
+  letter-spacing: 0.5px;
+}
+.breadcrumb a { color: var(--grey); transition: color var(--trans); }
+.breadcrumb a:hover { color: var(--red); }
+.breadcrumb span { color: var(--red); }
+
+/* ── SERVICES DETAIL LIST (services page) ─────────────── */
+.services-detail {
+  background: var(--bg3);
+  padding: 80px 0;
+}
+.service-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px;
+}
+.service-detail-card {
+  display: flex;
+  gap: 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  transition: transform var(--trans), border-color var(--trans);
+}
+.service-detail-card:hover { transform: translateY(-4px); border-color: var(--red); }
+.service-detail-icon {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  background: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #fff;
+}
+.service-detail-card h3 {
+  font-family: var(--font);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--white);
+}
+.service-detail-card p { color: var(--grey); font-size: 13.5px; line-height: 1.6; }
+
+/* ── CTA STRIP ────────────────────────────────────────── */
+.cta-strip {
+  background: var(--red);
+  text-align: center;
+  padding: 56px 0;
+}
+.cta-strip h2 {
+  font-family: var(--font);
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.cta-strip p { color: rgba(255,255,255,0.9); margin-bottom: 24px; }
+.cta-strip .btn {
+  background: #fff;
+  color: var(--red);
+  border-color: #fff;
+}
+.cta-strip .btn:hover { background: #111; color: #fff; border-color: #111; }
+
+/* ── CONTACT PAGE ─────────────────────────────────────── */
+.contact-page { background: var(--bg); padding: 80px 0; }
+.contact-page-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 50px;
+}
+.contact-info-block h2 {
+  font-family: var(--font);
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.contact-info-block > p { color: var(--grey); margin-bottom: 26px; }
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+.contact-info-item .ci-icon {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--red);
+  font-size: 17px;
+}
+.contact-info-item h4 {
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.contact-info-item a, .contact-info-item p { color: var(--grey); font-size: 14px; }
+.contact-info-item a:hover { color: var(--white); }
+
+.contact-form-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+}
+.contact-form-card h2 {
+  font-family: var(--font);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* map */
+.map-embed {
+  width: 100%;
+  height: 380px;
+  border: 0;
+  display: block;
+  filter: grayscale(0.3) invert(0.9) hue-rotate(180deg);
+}
+
+@media (max-width: 860px) {
+  .service-detail-grid { grid-template-columns: 1fr; }
+  .contact-page-grid { grid-template-columns: 1fr; gap: 36px; }
+}
+@media (max-width: 720px) {
+  .page-banner { padding: 60px 0; }
+  .services-detail, .contact-page { padding: 56px 0; }
+}
