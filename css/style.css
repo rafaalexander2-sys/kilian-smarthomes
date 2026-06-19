@@ -27,6 +27,8 @@ body {
   font-size: 15px;
   line-height: 1.7;
   overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 a { text-decoration: none; color: inherit; }
@@ -704,21 +706,45 @@ img { max-width: 100%; display: block; }
   }
   .nav-links.open { transform: translateY(0); }
   .hamburger { display: flex; }
+
+  /* bigger tap targets in the mobile menu */
+  .nav-links .nav-link { padding: 12px 4px; font-size: 15px; width: 100%; }
+  .nav-links .btn-nav { margin-top: 8px; padding: 12px 18px; }
+
+  /* tighter vertical rhythm on phones */
+  .about     { padding: 56px 0; }
+  .services  { padding: 56px 0; }
+  .dealers   { padding: 52px 0; }
+  .instagram-section { padding: 52px 0 0; }
+  .reviews-section   { padding: 56px 0; }
+  .footer    { padding: 48px 0 0; }
+  .section-title { margin-bottom: 28px; }
+
+  .hero { min-height: 78vh; }
+  .hero-box { max-width: 100%; padding: 28px 22px 24px; }
   .hero-content h1 { font-size: clamp(24px, 6vw, 38px); }
+  .hero-btns .btn { flex: 1; text-align: center; }
+
+  .about-grid { gap: 32px; }
+
   .review-card { flex: 0 0 100%; }
   .rc-arrow { width: 34px; height: 34px; font-size: 13px; }
   .services-grid { grid-template-columns: 1fr; }
   .ig-grid { grid-template-columns: repeat(3, 1fr); }
-  .dealers-grid { grid-template-columns: repeat(2, 1fr); }
-  .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-  .footer-bottom { flex-direction: column; text-align: center; }
+  .dealers-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 24px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+  .footer-bottom { flex-direction: column; text-align: center; gap: 16px; }
   .footer-social a:first-child { margin-left: 0; }
-  .ig-profile { flex-direction: column; align-items: center; text-align: center; }
+  .ig-profile { flex-direction: column; align-items: center; text-align: center; gap: 16px; }
   .ig-profile-info ul li::before { content: ''; }
 }
 
 @media (max-width: 420px) {
   .ig-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-box h1 { font-size: 22px; }
+  .excellent-label { font-size: 22px; }
+  .dealers-title { margin-bottom: 36px; }
+  .top-social a { margin-left: 12px; }
 }
 
 /* ── UX / A11Y / PERFORMANCE ENHANCEMENTS ─────────────── */
